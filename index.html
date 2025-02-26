@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-light: #3b82f6;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #64748b;
+            --accent-color: #7c3aed;
+            --background-light: #f8fafc;
+            --background-dark: #1e293b;
+            --text-primary: #334155;
+            --text-secondary: #64748b;
+            --text-light: #f8fafc;
+            --card-bg: #ffffff;
+            --success-color: #059669;
+        }
+
+        body {
+            background-color: var(--background-light);
+            color: var(--text-primary);
+        }
+
+        /* Navbar styling */
+        .navbar {
+            background-color: var(--card-bg) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            animation: slideDown 0.5s ease-out;
+        }
+
+        .navbar-brand {
+            color: var(--primary-color) !important;
+            font-weight: bold;
+        }
+
+        .nav-link {
+            color: var(--text-primary) !important;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        /* Header styling */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color)) !important;
+            color: var(--text-light) !important;
+        }
+
+        header .lead {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        /* Enhanced card styling */
+        .card {
+            background: linear-gradient(
+                135deg,
+                var(--card-bg) 0%,
+                #f8fafc 100%
+            );
+            border: none;
+            box-shadow:
+                0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                0 2px 4px -1px rgba(0, 0, 0, 0.06),
+                inset 0 2px 4px rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(
+                90deg,
+                var(--primary-color),
+                var(--accent-color)
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow:
+                0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                0 10px 10px -5px rgba(0, 0, 0, 0.04),
+                inset 0 2px 4px rgba(255, 255, 255, 0.9);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        /* Technology badges */
+        .technology-badge {
+            background-color: var(--primary-light) !important;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .technology-badge:hover {
+            background-color: var(--primary-dark) !important;
+            transform: scale(1.1);
+        }
+
+        /* Buttons */
+        .btn-outline-secondary {
+            color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        .btn-outline-secondary:hover {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        /* Contact section */
+        #contact {
+            background-color: var(--background-light);
+        }
+
+        .social-icon {
+            color: var(--primary-color) !important;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: var(--accent-color) !important;
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--background-dark) !important;
+            color: var(--text-light) !important;
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .animate-text {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">My Portfolio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Header -->
+<header class="py-5">
+    <div class="container text-center">
+        <h1 class="display-4 animate-text">My Projects</h1>
+        <p class="lead animate-text" style="animation-delay: 0.2s">A collection of web applications I've built to solve
+            everyday problems</p>
+    </div>
+</header>
+
+<!-- Projects Section -->
+<section id="projects" class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Project 1 -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Chia Tiền Nhóm</h5>
+                        <div class="mb-3">
+                            <span class="badge technology-badge">HTML</span>
+                            <span class="badge technology-badge">CSS</span>
+                            <span class="badge technology-badge">JavaScript</span>
+                        </div>
+                        <p class="card-text">Ứng dụng giúp tính toán và chia tiền một cách công bằng trong nhóm, giúp
+                            quản lý chi tiêu dễ dàng hơn.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-top-0">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <a href="https://github.com/thuanmtt/chia-tien-nhom"
+                                   class="btn btn-sm btn-outline-secondary me-2">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                                <a href="https://thuanmtt.github.io/chia-tien-nhom/"
+                                   class="btn btn-sm btn-outline-primary">
+                                    <i class="fas fa-external-link-alt"></i> Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Tính Điểm Sâm Lốc</h5>
+                        <div class="mb-3">
+                            <span class="badge technology-badge">HTML</span>
+                            <span class="badge technology-badge">CSS</span>
+                            <span class="badge technology-badge">JavaScript</span>
+                        </div>
+                        <p class="card-text">Ứng dụng hỗ trợ tính điểm cho trò chơi Sâm Lốc, giúp người chơi theo dõi
+                            điểm số dễ dàng.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-top-0">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <a href="https://github.com/thuanmtt/tinh-diem-sam-loc"
+                                   class="btn btn-sm btn-outline-secondary me-2">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                                <a href="https://thuanmtt.github.io/tinh-diem-sam-loc/"
+                                   class="btn btn-sm btn-outline-primary">
+                                    <i class="fas fa-external-link-alt"></i> Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-5" data-aos="fade-up">
+    <div class="container">
+        <h2 class="text-center mb-4">Contact</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center">
+                <div class="mb-3">
+                    <a href="https://github.com/thuanmtt" class="me-3 social-icon">
+                        <i class="fab fa-github fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-4">
+    <div class="container text-center">
+        <small>&copy; 2025 My Portfolio. All rights reserved.</small>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+    });
+</script>
+</body>
+</html>
